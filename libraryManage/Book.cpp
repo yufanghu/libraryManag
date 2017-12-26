@@ -6,12 +6,14 @@
 #include "libraryManage.h"
 #include "Book.h"
 #include <IO.H>
+#include <STRING>
 
 #ifdef _DEBUG
 #undef THIS_FILE
 static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
+
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -76,16 +78,24 @@ int CBook::isIdExist(CString strName)
 		return -1;
 	}
 	char strLine[4096] = {0};
-	CString tmp,tmp1;
+	std::string tmp,tmp1;
 	int iStart = 0 , iEnd=0;
 	while( !feof(fp))
 	{
 		fgets(strLine,4096,fp); 
+		tmp = strLine;
 		iEnd = strlen(strLine);
-		tmp1 = tmp.substr( iStart , iEnd);
-		if ( tmp1 == strName)
+		//tmp.
+		iEnd = tmp.find('-');
+	
+		if ( iEnd != -1 )
 		{
-			return 1;
+			tmp1 = tmp.substr(iStart, iEnd);
+			if (CString(tmp1.c_str()) == strName)
+			{
+				return 1;
+			}
+			//return 1;
 		}
 	}
 
@@ -96,7 +106,7 @@ int CBook::isIdExist(CString strName)
 void  CBook::saveBorrowInfo(struct BorrowInfo& info)
 {
 
-	mapBook[info.strId].push_back(info);
-	mapBookNum[info.strBookName].bookNumIN--;
-	mapBookNum[info.strBookName].bookNumOut++;
+//	mapBook[info.strId].push_back(info);
+//	mapBookNum[info.strBookName].bookNumIN--;
+//	mapBookNum[info.strBookName].bookNumOut++;
 }

@@ -9,6 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+
 struct BorrowInfo
 {
 	CString strName;
@@ -42,8 +43,8 @@ void  saveBorrowInfo(struct BorrowInfo& info);
 
 
 
-map<CString, vector<struct BorrowInfo info>> mapBook; 
-map<CString, struct bookInfo info> mapBookNum;
+//map< CString, vector< struct BorrowInfo > > mapBook; 
+//map< CString, struct bookInfo > mapBookNum;
 
 };
 
