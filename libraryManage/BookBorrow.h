@@ -6,7 +6,7 @@
 #endif // _MSC_VER > 1000
 // BookBorrow.h : header file
 //
-
+#include "Book.h"
 /////////////////////////////////////////////////////////////////////////////
 // CBookBorrow dialog
 
@@ -25,6 +25,7 @@ public:
 	CString	m_borrow_id;
 	CString	m_borrow_book;
 	CString	m_back_date;
+	CString	m_borrow_company;
 	CTime	m_borrow_date;
 	//}}AFX_DATA
 
@@ -38,6 +39,8 @@ public:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 
+	CBook  m_book;
+	struct BorrowInfo m_borrowInfo;
 // Implementation
 protected:
 
@@ -46,6 +49,9 @@ protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnPaint();
 	afx_msg void OnBookBorrow();
+	afx_msg void OnBorrowClear();
+	afx_msg void OnDatetimechangeDatetimepicker1(NMHDR* pNMHDR, LRESULT* pResult);
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

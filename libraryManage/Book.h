@@ -9,11 +9,41 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+struct BorrowInfo
+{
+	CString strName;
+	CString strCompany;
+	CString strId;
+	CString strBookName;
+	CString strBorrowDate;
+	CString strBackDate;
+	char  isReturn;
+	
+
+};
+
+struct bookInfo
+{
+	int bookNumIN; //图书剩余数量
+	int bookNumOut; //图书借出数量
+};
+
 class CBook  
 {
 public:
 	CBook();
 	virtual ~CBook();
+void setBorrowInfo(struct BorrowInfo& info);
+bool isFileExist(CString fileName);
+int isIdExist(CString strName);
+void  saveBorrowInfo(struct BorrowInfo& info);
+
+
+
+
+
+map<CString, vector<struct BorrowInfo info>> mapBook; 
+map<CString, struct bookInfo info> mapBookNum;
 
 };
 

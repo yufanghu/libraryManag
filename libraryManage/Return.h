@@ -19,8 +19,14 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CReturn)
 	enum { IDD = IDD_RETURN };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_return_name;
+	CString	m_return_id;
+	CString	m_return_book;
+	CString	m_return_money;
+	CTime	m_return_dat;
 	//}}AFX_DATA
+
+	CBook m_book;
 
 
 // Overrides
@@ -35,7 +41,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CReturn)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnReturn();
+	afx_msg void OnClear();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -6,20 +6,60 @@
 --------------------Configuration: libraryManage - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP1EB9.tmp" with contents
+Creating command line "rc.exe /l 0x804 /fo"Debug/libraryManage.res" /d "_DEBUG" /d "_AFXDLL" "G:\1215\MyProjects\libraryManag\libraryManage\libraryManage.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP13CC.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/libraryManage.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"G:\1215\MyProjects\libraryManage\BookBorrow.cpp"
+"G:\1215\MyProjects\libraryManag\libraryManage\Book.cpp"
+"G:\1215\MyProjects\libraryManag\libraryManage\BookBorrow.cpp"
+"G:\1215\MyProjects\libraryManag\libraryManage\libraryManage.cpp"
+"G:\1215\MyProjects\libraryManag\libraryManage\libraryManageDoc.cpp"
+"G:\1215\MyProjects\libraryManag\libraryManage\libraryManageView.cpp"
+"G:\1215\MyProjects\libraryManag\libraryManage\MainFrm.cpp"
+"G:\1215\MyProjects\libraryManag\libraryManage\Return.cpp"
 ]
-Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP1EB9.tmp" 
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP13CC.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP13DC.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/libraryManage.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\1215\MyProjects\libraryManag\libraryManage\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP13DC.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP13DD.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/libraryManage.pdb" /debug /machine:I386 /out:"Debug/libraryManage.exe" /pdbtype:sept 
+.\Debug\Book.obj
+.\Debug\BookBorrow.obj
+.\Debug\libraryManage.obj
+.\Debug\libraryManageDoc.obj
+.\Debug\libraryManageView.obj
+.\Debug\MainFrm.obj
+.\Debug\Return.obj
+.\Debug\StdAfx.obj
+.\Debug\libraryManage.res
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP13DD.tmp"
 <h3>Output Window</h3>
+Compiling resources...
 Compiling...
+StdAfx.cpp
+Compiling...
+Book.cpp
 BookBorrow.cpp
+libraryManage.cpp
+libraryManageDoc.cpp
+libraryManageView.cpp
+MainFrm.cpp
+Return.cpp
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/libraryManage.bsc"  .\Debug\StdAfx.sbr .\Debug\Book.sbr .\Debug\BookBorrow.sbr .\Debug\libraryManage.sbr .\Debug\libraryManageDoc.sbr .\Debug\libraryManageView.sbr .\Debug\MainFrm.sbr .\Debug\Return.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
 
 
 
 <h3>Results</h3>
-BookBorrow.obj - 0 error(s), 0 warning(s)
+libraryManage.exe - 0 error(s), 0 warning(s)
 </pre>
 </body>
 </html>

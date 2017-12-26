@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CBookBorrow
+LastClass=CReturn
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "libraryManage.h"
@@ -15,17 +15,17 @@ Class3=CLibraryManageView
 Class4=CMainFrame
 
 ResourceCount=9
-Resource1=IDD_READER_ADD
+Resource1=IDR_MAINFRAME
 Resource2=IDD_ABOUTBOX
 Class5=CAboutDlg
-Resource3=IDD_BOOK_ADD
-Resource4=IDD_BORROW
+Resource3=IDD_BORROW
+Resource4=IDD_BOOK_SEARCHE
 Class6=CReturn
 Class7=CBookBorrow
-Resource5=IDR_MAINFRAME
-Resource6=IDD_RETURN
-Resource7=IDD_BOOK_DELETE
-Resource8=IDD_BOOK_SEARCHE
+Resource5=IDD_BOOK_DELETE
+Resource6=IDD_BOOK_ADD
+Resource7=IDD_RETURN
+Resource8=IDD_READER_ADD
 Class8=CBookDelete
 Resource9=IDD_READER_DELETE
 
@@ -138,8 +138,8 @@ Control7=IDC_STATIC,static,1342308352
 Control8=IDC_EDIT4,edit,1350631552
 Control9=IDC_STATIC,static,1342308352
 Control10=IDC_STATIC,static,1342308352
-Control11=IDC_EDIT6,edit,1350631552
-Control12=IDC_DATETIMEPICKER1,SysDateTimePick32,1342242848
+Control11=IDC_EDIT6,edit,1350633600
+Control12=IDC_DATETIMEPICKER1,SysDateTimePick32,1342242864
 Control13=IDC_STATIC,static,1342308352
 Control14=IDC_BUTTON1,button,1342242816
 Control15=IDC_BUTTON2,button,1342242816
@@ -147,7 +147,7 @@ Control15=IDC_BUTTON2,button,1342242816
 [DLG:IDD_RETURN]
 Type=1
 Class=CReturn
-ControlCount=12
+ControlCount=14
 Control1=IDC_STATIC,static,1342308352
 Control2=IDC_EDIT1,edit,1350631552
 Control3=IDC_STATIC,static,1342308352
@@ -159,7 +159,9 @@ Control8=IDC_STATIC,static,1342308352
 Control9=IDC_STATIC,static,1342308352
 Control10=IDC_EDIT3,edit,1350631552
 Control11=IDC_STATIC,static,1342308352
-Control12=IDC_EDIT4,edit,1350631552
+Control12=IDC_DATETIMEPICKER1,SysDateTimePick32,1342242848
+Control13=IDC_BUTTON1,button,1342242816
+Control14=IDC_BUTTON2,button,1342242816
 
 [CLS:CBorrow]
 Type=0
@@ -173,6 +175,8 @@ HeaderFile=Return.h
 ImplementationFile=Return.cpp
 BaseClass=CDialog
 Filter=D
+LastObject=IDC_EDIT1
+VirtualFilter=dWC
 
 [CLS:CBookBorrow]
 Type=0
@@ -181,7 +185,7 @@ ImplementationFile=BookBorrow.cpp
 BaseClass=CDialog
 Filter=D
 VirtualFilter=dWC
-LastObject=IDC_EDIT1
+LastObject=IDC_EDIT6
 
 [DLG:IDD_READER_ADD]
 Type=1
