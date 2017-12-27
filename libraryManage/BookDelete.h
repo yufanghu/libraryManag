@@ -10,16 +10,20 @@
 /////////////////////////////////////////////////////////////////////////////
 // CBookDelete dialog
 
+#include "Book.h"
 class CBookDelete : public CDialog
 {
 // Construction
 public:
 	CBookDelete(CWnd* pParent = NULL);   // standard constructor
+	CBook m_book;
 
 // Dialog Data
 	//{{AFX_DATA(CBookDelete)
 	enum { IDD = IDD_BOOK_DELETE };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_book_id;
+	CString	m_book_name;
+	CString	m_book_info;
 	//}}AFX_DATA
 
 
@@ -35,7 +39,7 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CBookDelete)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnDelete();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

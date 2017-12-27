@@ -19,7 +19,9 @@ CBookDelete::CBookDelete(CWnd* pParent /*=NULL*/)
 	: CDialog(CBookDelete::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CBookDelete)
-		// NOTE: the ClassWizard will add member initialization here
+	m_book_id = _T("");
+	m_book_name = _T("");
+	m_book_info = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -28,16 +30,42 @@ void CBookDelete::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CBookDelete)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	DDX_Text(pDX, IDC_EDIT1, m_book_id);
+	DDX_Text(pDX, IDC_EDIT2, m_book_name);
+	DDX_Text(pDX, IDC_EDIT3, m_book_info);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CBookDelete, CDialog)
 	//{{AFX_MSG_MAP(CBookDelete)
-		// NOTE: the ClassWizard will add message map macros here
+	ON_BN_CLICKED(IDOK, OnDelete)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CBookDelete message handlers
+
+void CBookDelete::OnDelete() 
+{
+
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	int t =	m_book.isBookExist(m_book_name);
+	if ( t == 0)
+	{
+		MessageBox("图书信息不存在","提示");
+		return;
+	}
+
+	CString temp;
+	temp.Format("%s-%s-%s-%s-%s-%s-%s-",_T(";"),_T(""), _T(""), m_book_name, 
+					_T(""),_T(""),_T("1"));
+	struct BorrowInfo info;
+	info.strName = ";";
+	info.isReturn = "1";
+	info.strBackDate = "";
+	bool res = m_book.deleteBook(info);
+	
+	
+}

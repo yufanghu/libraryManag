@@ -6,7 +6,7 @@
 #endif // _MSC_VER > 1000
 // Return.h : header file
 //
-
+#include "Book.h"
 /////////////////////////////////////////////////////////////////////////////
 // CReturn dialog
 
@@ -27,6 +27,7 @@ public:
 	//}}AFX_DATA
 
 	CBook m_book;
+	struct BorrowInfo m_borrowInfo;
 
 
 // Overrides

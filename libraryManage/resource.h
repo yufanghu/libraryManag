@@ -13,6 +13,9 @@
 #define IDD_BOOK_DELETE                 134
 #define IDD_BOOK_SEARCHE                135
 #define IDD_READER_DELETE               136
+#define IDD_READER_SEARCH               138
+#define IDD_DIALOG1                     139
+#define IDD_DIALOG2                     140
 #define IDC_EDIT1                       1000
 #define IDC_EDIT2                       1001
 #define IDC_EDIT3                       1002
@@ -23,6 +26,7 @@
 #define IDC_DATETIMEPICKER1             1009
 #define IDC_LIST1                       1012
 #define IDC_BUTTON1                     1013
+#define IDC_LIST2                       1013
 #define IDC_BUTTON2                     1014
 #define ID_DELETE                       32771
 #define ID_ADD                          32772
@@ -31,6 +35,8 @@
 #define ID_READER_SEARCHE               32775
 #define ID_READER_OUT                   32776
 #define ID_SEARCH                       32777
+#define ID_MENU_RETURN                  32778
+#define ID_READER_MODIFY                32779
 #define ID_MENU_BORROW                  65535
 
 // Next default values for new objects
@@ -38,8 +44,8 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        137
-#define _APS_NEXT_COMMAND_VALUE         32778
+#define _APS_NEXT_RESOURCE_VALUE        141
+#define _APS_NEXT_COMMAND_VALUE         32780
 #define _APS_NEXT_CONTROL_VALUE         1016
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

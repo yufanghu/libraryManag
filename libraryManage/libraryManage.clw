@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CReturn
+LastClass=CBookDelete
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "libraryManage.h"
@@ -14,20 +14,23 @@ Class2=CLibraryManageDoc
 Class3=CLibraryManageView
 Class4=CMainFrame
 
-ResourceCount=9
-Resource1=IDR_MAINFRAME
-Resource2=IDD_ABOUTBOX
+ResourceCount=12
+Resource1=IDD_READER_ADD
+Resource2=IDD_BOOK_DELETE
 Class5=CAboutDlg
-Resource3=IDD_BORROW
-Resource4=IDD_BOOK_SEARCHE
+Resource3=IDD_ABOUTBOX
+Resource4=IDD_BOOK_ADD
 Class6=CReturn
 Class7=CBookBorrow
-Resource5=IDD_BOOK_DELETE
-Resource6=IDD_BOOK_ADD
+Resource5=IDD_DIALOG1
+Resource6=IDD_READER_DELETE
 Resource7=IDD_RETURN
-Resource8=IDD_READER_ADD
+Resource8=IDR_MAINFRAME
 Class8=CBookDelete
-Resource9=IDD_READER_DELETE
+Resource9=IDD_READER_SEARCH
+Resource10=IDD_BORROW
+Resource11=IDD_BOOK_SEARCHE
+Resource12=IDD_DIALOG2
 
 [CLS:CLibraryManageApp]
 Type=0
@@ -48,6 +51,7 @@ ImplementationFile=libraryManageView.cpp
 Filter=C
 BaseClass=CView
 VirtualFilter=VWC
+LastObject=CLibraryManageView
 
 
 [CLS:CMainFrame]
@@ -55,7 +59,9 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
-LastObject=ID_MENU_BORROW
+LastObject=ID_READER_OUT
+BaseClass=CFrameWnd
+VirtualFilter=fWC
 
 
 
@@ -80,13 +86,13 @@ Control4=IDOK,button,1342373889
 Type=1
 Class=CMainFrame
 Command1=ID_MENU_BORROW
-Command2=ID_MENU_BORROW
+Command2=ID_MENU_RETURN
 Command3=ID_DELETE
 Command4=ID_ADD
 Command5=ID_SEARCH
 Command6=ID_READER_ADD
 Command7=ID_READER_DELETE
-Command8=ID_READER_DELETE
+Command8=ID_READER_MODIFY
 Command9=ID_READER_SEARCHE
 Command10=ID_READER_OUT
 Command11=ID_APP_ABOUT
@@ -147,21 +153,19 @@ Control15=IDC_BUTTON2,button,1342242816
 [DLG:IDD_RETURN]
 Type=1
 Class=CReturn
-ControlCount=14
+ControlCount=12
 Control1=IDC_STATIC,static,1342308352
-Control2=IDC_EDIT1,edit,1350631552
+Control2=IDC_EDIT2,edit,1350631552
 Control3=IDC_STATIC,static,1342308352
-Control4=IDC_EDIT2,edit,1350631552
+Control4=IDC_EDIT7,edit,1350633472
 Control5=IDC_STATIC,static,1342308352
-Control6=IDC_EDIT7,edit,1350633600
+Control6=IDC_STATIC,static,1342308352
 Control7=IDC_STATIC,static,1342308352
-Control8=IDC_STATIC,static,1342308352
+Control8=IDC_EDIT3,edit,1350631552
 Control9=IDC_STATIC,static,1342308352
-Control10=IDC_EDIT3,edit,1350631552
-Control11=IDC_STATIC,static,1342308352
-Control12=IDC_DATETIMEPICKER1,SysDateTimePick32,1342242848
-Control13=IDC_BUTTON1,button,1342242816
-Control14=IDC_BUTTON2,button,1342242816
+Control10=IDC_DATETIMEPICKER1,SysDateTimePick32,1342242848
+Control11=IDC_BUTTON1,button,1342242816
+Control12=IDC_BUTTON2,button,1342242816
 
 [CLS:CBorrow]
 Type=0
@@ -175,7 +179,7 @@ HeaderFile=Return.h
 ImplementationFile=Return.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_EDIT1
+LastObject=IDC_DATETIMEPICKER1
 VirtualFilter=dWC
 
 [CLS:CBookBorrow]
@@ -275,4 +279,51 @@ HeaderFile=BookDelete.h
 ImplementationFile=BookDelete.cpp
 BaseClass=CDialog
 Filter=D
+VirtualFilter=dWC
+LastObject=IDOK
+
+[DLG:IDD_READER_SEARCH]
+Type=1
+Class=?
+ControlCount=8
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308352
+Control4=IDC_EDIT1,edit,1350631552
+Control5=IDC_EDIT3,edit,1350631552
+Control6=IDC_STATIC,static,1342308352
+Control7=IDC_STATIC,static,1342308352
+Control8=IDC_EDIT5,edit,1350633600
+
+[DLG:IDD_DIALOG1]
+Type=1
+Class=?
+ControlCount=18
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308352
+Control4=IDC_EDIT1,edit,1350631552
+Control5=IDC_STATIC,static,1342308352
+Control6=IDC_EDIT2,edit,1350631552
+Control7=IDC_STATIC,static,1342308352
+Control8=IDC_EDIT3,edit,1350631552
+Control9=IDC_LIST1,listbox,1352728835
+Control10=IDC_STATIC,static,1342308352
+Control11=IDC_STATIC,static,1342308352
+Control12=IDC_EDIT4,edit,1350631552
+Control13=IDC_STATIC,static,1342308352
+Control14=IDC_EDIT5,edit,1350631552
+Control15=IDC_STATIC,static,1342308352
+Control16=IDC_EDIT6,edit,1350631552
+Control17=IDC_LIST2,listbox,1352728835
+Control18=IDC_STATIC,static,1342308352
+
+[DLG:IDD_DIALOG2]
+Type=1
+Class=?
+ControlCount=4
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308352
+Control4=IDC_EDIT5,edit,1350633600
 

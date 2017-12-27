@@ -145,13 +145,17 @@ void CBookBorrow::OnBookBorrow()
 
 	 CString  borr;
 	 borr.Format("%d/%02d/%02d",tt.GetYear(),tt.GetMonth(),tt.GetDay());
-
+	//borr.Format("%d",tt);
 
 
 	 //SetDlgItemText(IDC_EDIT6, temp);
 
+	 CString  backT;
+	 backT.Format("%d",tt2);
+
 	 m_borrowInfo.strBorrowDate = borr;
-	 m_borrowInfo.strBackDate = m_back_date;
+	 m_borrowInfo.strBackDate = backT;
+	 m_borrowInfo.isReturn = _T("0");
 	UpdateData(FALSE);
 	m_book.setBorrowInfo(m_borrowInfo);
 

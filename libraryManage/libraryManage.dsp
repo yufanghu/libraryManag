@@ -94,7 +94,19 @@ SOURCE=.\Book.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\BookAddDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\BookBorrow.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BookDelete.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BookSearchDlg.cpp
 # End Source File
 # Begin Source File
 
@@ -118,6 +130,34 @@ SOURCE=.\MainFrm.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\Reader.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderAddDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderDelete.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderDeleteDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderModDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderOutDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderSearchDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Return.cpp
 # End Source File
 # Begin Source File
@@ -135,7 +175,19 @@ SOURCE=.\Book.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\BookAddDlg.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\BookBorrow.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\BookDelete.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\BookSearchDlg.h
 # End Source File
 # Begin Source File
 
@@ -152,6 +204,34 @@ SOURCE=.\libraryManageView.h
 # Begin Source File
 
 SOURCE=.\MainFrm.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Reader.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderAddDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderDelete.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderDeleteDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderModDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderOutDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReaderSearchDlg.h
 # End Source File
 # Begin Source File
 

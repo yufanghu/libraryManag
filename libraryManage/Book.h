@@ -9,7 +9,10 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#define  MAX_LINE  1000
 
+#include <VECTOR>
+using namespace std;
 struct BorrowInfo
 {
 	CString strName;
@@ -18,13 +21,21 @@ struct BorrowInfo
 	CString strBookName;
 	CString strBorrowDate;
 	CString strBackDate;
-	char  isReturn;
+	CString  isReturn;
 	
 
 };
 
+
+
 struct bookInfo
 {
+	CString strBookName;
+	CString strBookId;
+	CString  strBookAuthor;
+	CString	 strBookPrint;
+	CString  strBookDate;
+	CString strBookPrice;
 	int bookNumIN; //图书剩余数量
 	int bookNumOut; //图书借出数量
 };
@@ -35,9 +46,22 @@ public:
 	CBook();
 	virtual ~CBook();
 void setBorrowInfo(struct BorrowInfo& info);
-bool isFileExist(CString fileName);
+
 int isIdExist(CString strName);
-void  saveBorrowInfo(struct BorrowInfo& info);
+void  saveBorrowInfo(struct BorrowInfo info);
+void  saveReturnInfo(struct BorrowInfo info);
+int   outOfDate(CString strName, CString strBook, CTime back);
+void  saveAllData();
+int isBookExist(CString bookName);
+bool deleteBook(struct BorrowInfo info);
+
+vector<struct BorrowInfo>  getAllData(); 
+
+
+
+private:
+
+
 
 
 

@@ -44,8 +44,9 @@ protected:  // control bar embedded members
 protected:
 	//{{AFX_MSG(CMainFrame)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-		// NOTE - the ClassWizard will add and remove member functions here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	afx_msg void OnReaderModify();
+	afx_msg void OnReaderSearche();
+	afx_msg void OnReaderOut();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

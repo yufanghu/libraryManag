@@ -10,6 +10,19 @@
 #endif // _MSC_VER > 1000
 
 
+#include "BookBorrow.h"
+#include "BookDelete.h"
+#include "BookAddDlg.h"
+#include "BookSearchDlg.h"
+#include "ReaderAddDlg.h"
+#include "ReaderDelete.h"
+#include "Return.h"
+#include "ReaderSearchDlg.h"
+#include "ReaderModDlg.h"
+#include "ReaderOutDlg.h"
+#include "Book.h"
+
+
 class CLibraryManageView : public CView
 {
 protected: // create from serialization only
@@ -18,7 +31,19 @@ protected: // create from serialization only
 
 // Attributes
 public:
+	CBookBorrow*  borr;
+	CBookDelete* m_pBookDelete;
+	CBookAddDlg* m_pBookAdd;
+	CBookSearchDlg* m_pBookSearch;
+	CReaderAddDlg* m_pReaderAdd;
+	CReaderDelete* m_pReaderDelete;
+	CReturn* m_pReturn;
+	CReaderSearchDlg* m_pReaderSearch;
+	CReaderModDlg* m_pReaderMod;
+	CReaderOutDlg* m_pReaderOut;
+
 	CLibraryManageDoc* GetDocument();
+	CBook m_book;
 
 // Operations
 public:
@@ -41,6 +66,8 @@ public:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
+
+
 protected:
 afx_msg void OnBorrow();
 // Generated message map functions
@@ -48,6 +75,15 @@ protected:
 	//{{AFX_MSG(CLibraryManageView)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnMenuReturn();
+	afx_msg void OnBookDelete();
+	afx_msg void OnBookAdd();
+	afx_msg void OnBookSearch();
+	afx_msg void OnReaderAdd();
+	afx_msg void OnReaderDelete();
+	afx_msg void OnReaderModify();
+	afx_msg void OnReaderSearche();
+	afx_msg void OnReaderOut();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
