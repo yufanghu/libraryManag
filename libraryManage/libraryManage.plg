@@ -6,72 +6,73 @@
 --------------------Configuration: libraryManage - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP5F1E.tmp" with contents
+Build : warning : failed to (or don't know how to) build 'E:\for_test\libraryManag\libraryManage\ReaderDelete.h'
+
+Build : warning : failed to (or don't know how to) build 'E:\for_test\libraryManag\libraryManage\ReaderSearchDlg.h'
+
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPAADB.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/libraryManage.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"E:\vc++6.0\MyProjects\libraryManag\libraryManage\Book.cpp"
-"E:\vc++6.0\MyProjects\libraryManag\libraryManage\Reader.cpp"
+"E:\for_test\libraryManag\libraryManage\libraryManage.cpp"
+"E:\for_test\libraryManag\libraryManage\libraryManageView.cpp"
 ]
-Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP5F1E.tmp" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP5F1F.tmp" with contents
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPAADB.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPAADC.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/libraryManage.pdb" /debug /machine:I386 /out:"Debug/libraryManage.exe" /pdbtype:sept 
-".\Debug\Book.obj"
-".\Debug\BookAddDlg.obj"
-".\Debug\BookBorrow.obj"
-".\Debug\BookDelete.obj"
-".\Debug\BookSearchDlg.obj"
-".\Debug\libraryManage.obj"
-".\Debug\libraryManageDoc.obj"
-".\Debug\libraryManageView.obj"
-".\Debug\MainFrm.obj"
-".\Debug\ReaderAddDlg.obj"
-".\Debug\ReaderDelete.obj"
-".\Debug\ReaderDeleteDlg.obj"
-".\Debug\ReaderModDlg.obj"
-".\Debug\ReaderOutDlg.obj"
-".\Debug\ReaderSearchDlg.obj"
-".\Debug\Return.obj"
-".\Debug\StdAfx.obj"
-".\Debug\libraryManage.res"
-".\Debug\Reader.obj"
+.\Debug\Book.obj
+.\Debug\BookBorrow.obj
+.\Debug\BookDelete.obj
+.\Debug\BookSearchDlg.obj
+.\Debug\libraryManage.obj
+.\Debug\libraryManageDoc.obj
+.\Debug\libraryManageView.obj
+.\Debug\MainFrm.obj
+.\Debug\Reader.obj
+.\Debug\ReaderDeleteDlg.obj
+.\Debug\ReaderModDlg.obj
+.\Debug\ReaderOutDlg.obj
+.\Debug\Return.obj
+.\Debug\StdAfx.obj
+.\Debug\libraryManage.res
+.\Debug\BookAdd.obj
+.\Debug\ReadAdd.obj
+.\Debug\ReaderSearchDlg1.obj
 ]
-Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP5F1F.tmp"
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPAADC.tmp"
 <h3>Output Window</h3>
 Compiling...
-Reader.cpp
-Skipping... (no relevant changes detected)
-Book.cpp
+libraryManage.cpp
+libraryManageView.cpp
 Linking...
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP6097.tmp" with contents
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFEE.tmp" with contents
 [
 /nologo /o"Debug/libraryManage.bsc" 
-".\Debug\StdAfx.sbr"
-".\Debug\Book.sbr"
-".\Debug\BookAddDlg.sbr"
-".\Debug\BookBorrow.sbr"
-".\Debug\BookDelete.sbr"
-".\Debug\BookSearchDlg.sbr"
-".\Debug\libraryManage.sbr"
-".\Debug\libraryManageDoc.sbr"
-".\Debug\libraryManageView.sbr"
-".\Debug\MainFrm.sbr"
-".\Debug\ReaderAddDlg.sbr"
-".\Debug\ReaderDelete.sbr"
-".\Debug\ReaderDeleteDlg.sbr"
-".\Debug\ReaderModDlg.sbr"
-".\Debug\ReaderOutDlg.sbr"
-".\Debug\ReaderSearchDlg.sbr"
-".\Debug\Return.sbr"
-".\Debug\Reader.sbr"]
-Creating command line "bscmake.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP6097.tmp"
+.\Debug\StdAfx.sbr
+.\Debug\Book.sbr
+.\Debug\BookBorrow.sbr
+.\Debug\BookDelete.sbr
+.\Debug\BookSearchDlg.sbr
+.\Debug\libraryManage.sbr
+.\Debug\libraryManageDoc.sbr
+.\Debug\libraryManageView.sbr
+.\Debug\MainFrm.sbr
+.\Debug\Reader.sbr
+.\Debug\ReaderDeleteDlg.sbr
+.\Debug\ReaderModDlg.sbr
+.\Debug\ReaderOutDlg.sbr
+.\Debug\Return.sbr
+.\Debug\BookAdd.sbr
+.\Debug\ReadAdd.sbr
+.\Debug\ReaderSearchDlg1.sbr]
+Creating command line "bscmake.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFEE.tmp"
 Creating browse info file...
 <h3>Output Window</h3>
 
 
 
 <h3>Results</h3>
-libraryManage.exe - 0 error(s), 0 warning(s)
+libraryManage.exe - 0 error(s), 2 warning(s)
 </pre>
 </body>
 </html>

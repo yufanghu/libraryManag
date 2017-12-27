@@ -12,15 +12,16 @@
 
 #include "BookBorrow.h"
 #include "BookDelete.h"
-#include "BookAddDlg.h"
+#include "BookAdd.h"
 #include "BookSearchDlg.h"
-#include "ReaderAddDlg.h"
-#include "ReaderDelete.h"
+#include "ReadAdd.h"
+#include "ReaderDeleteDlg.h"
 #include "Return.h"
-#include "ReaderSearchDlg.h"
+#include "ReaderSearchDlg1.h"
 #include "ReaderModDlg.h"
 #include "ReaderOutDlg.h"
 #include "Book.h"
+#include "Reader.h"
 
 
 class CLibraryManageView : public CView
@@ -33,10 +34,10 @@ protected: // create from serialization only
 public:
 	CBookBorrow*  borr;
 	CBookDelete* m_pBookDelete;
-	CBookAddDlg* m_pBookAdd;
+	CBookAdd* m_pBookAdd;
 	CBookSearchDlg* m_pBookSearch;
-	CReaderAddDlg* m_pReaderAdd;
-	CReaderDelete* m_pReaderDelete;
+	CReadAdd* m_pReaderAdd;
+	CReaderDeleteDlg* m_pReaderDelete;
 	CReturn* m_pReturn;
 	CReaderSearchDlg* m_pReaderSearch;
 	CReaderModDlg* m_pReaderMod;
@@ -44,7 +45,7 @@ public:
 
 	CLibraryManageDoc* GetDocument();
 	CBook m_book;
-
+	CReader m_reader;
 // Operations
 public:
 

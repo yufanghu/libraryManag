@@ -106,29 +106,29 @@ void CBookBorrow::OnBookBorrow()
 		return;
 	}
 
-	//
+	struct ReaderInfo rInfo;
 	if ( m_borrow_reader.IsEmpty())
 	{
-		m_borrowInfo.strName= "";
+		rInfo.strName= "";
 	}
 	else
 	{
-		m_borrowInfo.strName = 	m_borrow_reader;
+		rInfo.strName = 	m_borrow_reader;
 	}
    
    
 	if ( m_borrow_company.IsEmpty())
 	{
-		m_borrowInfo.strCompany = "";
+		rInfo.strCompany = "";
 	}
 	else
 	{
-		m_borrowInfo.strCompany = m_borrow_company;
+		rInfo.strCompany = m_borrow_company;
 	}
 
-	m_borrowInfo.strId = m_borrow_id;
+	rInfo.strId = m_borrow_id;
 
-	m_borrowInfo.strBookName = m_borrow_book;
+	rInfo.strBookName = m_borrow_book;
 
 
 
@@ -153,12 +153,19 @@ void CBookBorrow::OnBookBorrow()
 	 CString  backT;
 	 backT.Format("%d",tt2);
 
-	 m_borrowInfo.strBorrowDate = borr;
-	 m_borrowInfo.strBackDate = backT;
-	 m_borrowInfo.isReturn = _T("0");
-	UpdateData(FALSE);
-	m_book.setBorrowInfo(m_borrowInfo);
+	 rInfo.strBorrowDate = borr;
+	 rInfo.strBackDate = backT;
+	 rInfo.isReturn = _T("0");
+	 m_reader.setReaderInfo(rInfo);
 
+	 struct bookInfo bInfo;
+	 bInfo.strBookName = m_borrow_book;
+	 bInfo.isReturn = _T("0");
+	 bInfo.isValid = _T("1");
+	 m_book.setBorrowInfo(bInfo);
+	 
+	UpdateData(FALSE);
+	
 }
 
 void CBookBorrow::OnBorrowClear() 

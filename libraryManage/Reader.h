@@ -31,8 +31,10 @@ public:
 	void  saveBorrowInfo(struct ReaderInfo info);
 	void  saveReturnInfo(struct ReaderInfo info);
 	int   outOfDate(CString strName, CString strBook, CTime back);
-
+	void saveAllData();
+	int isReaderExist(CString strName);
 	vector<struct ReaderInfo>  getAllData();
+	bool  addReader(struct ReaderInfo info);
 	
 
 };

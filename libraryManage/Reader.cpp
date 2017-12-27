@@ -32,6 +32,9 @@ CReader::~CReader()
 void CReader::setReaderInfo(struct ReaderInfo& info)
 {
 
+	m_Reader.push_back(info);
+	saveAllData();
+
 }
 
 vector<struct ReaderInfo> CReader::getAllData()
@@ -184,3 +187,51 @@ int CReader::  outOfDate(CString strName, CString strBook, CTime back)
     }
 	return day;
  }
+
+void  CReader:: saveAllData()
+{
+	FILE *fp;
+	
+	if ( (fp = fopen("reader.txt","w")) == NULL)
+	{
+		return ;
+	}
+	
+	vector<struct ReaderInfo>::iterator info;
+	int aa = m_Reader.size();
+	for( info = m_Reader.begin(); info != m_Reader.end(); info++)
+	{
+		CString temp;
+		temp.Format("%s-%s-%s-%s-%s-%s-%s-",info->strName,info->strId, 
+			info->strCompany, info->strBookName,info->strBorrowDate, 
+			info->strBackDate,info->isReturn);
+	 fprintf(fp,"%s\n", temp);
+	}
+	
+	
+	
+	
+	fclose(fp);
+}
+
+int  CReader::isReaderExist(CString strName)
+{
+	vector<struct ReaderInfo>::iterator info;
+	int aa = m_Reader.size();
+	for( info = m_Reader.begin(); info != m_Reader.end(); ++info)
+	{
+		if ( info->strId == strName)
+		{
+			return 1;
+		}
+	}
+	 return 0;
+}
+
+bool  CReader::addReader(struct ReaderInfo info)
+{
+
+	m_Reader.push_back(info);
+	saveAllData();
+	return true;
+}

@@ -2,34 +2,38 @@
 
 [General Info]
 Version=1
-LastClass=CBookDelete
+LastClass=CReaderSearchDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "libraryManage.h"
 LastPage=0
 
-ClassCount=8
+ClassCount=12
 Class1=CLibraryManageApp
 Class2=CLibraryManageDoc
 Class3=CLibraryManageView
 Class4=CMainFrame
 
 ResourceCount=12
-Resource1=IDD_READER_ADD
-Resource2=IDD_BOOK_DELETE
+Resource1=IDD_READER_DELETE
+Resource2=IDD_DIALOG1
 Class5=CAboutDlg
-Resource3=IDD_ABOUTBOX
-Resource4=IDD_BOOK_ADD
+Resource3=IDD_READER_ADD
+Resource4=IDD_RETURN
 Class6=CReturn
 Class7=CBookBorrow
-Resource5=IDD_DIALOG1
-Resource6=IDD_READER_DELETE
-Resource7=IDD_RETURN
-Resource8=IDR_MAINFRAME
+Resource5=IDR_MAINFRAME
+Resource6=IDD_ABOUTBOX
+Resource7=IDD_BOOK_SEARCHE
+Resource8=IDD_READER_SEARCH
 Class8=CBookDelete
-Resource9=IDD_READER_SEARCH
-Resource10=IDD_BORROW
-Resource11=IDD_BOOK_SEARCHE
+Resource9=IDD_BORROW
+Resource10=IDD_BOOK_ADD
+Resource11=IDD_BOOK_DELETE
+Class9=CBookAdd
+Class10=CReadAdd
+Class11=CReaderDeleteDlg
+Class12=CReaderSearchDlg
 Resource12=IDD_DIALOG2
 
 [CLS:CLibraryManageApp]
@@ -59,7 +63,7 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
-LastObject=ID_READER_OUT
+LastObject=ID_ADD
 BaseClass=CFrameWnd
 VirtualFilter=fWC
 
@@ -153,7 +157,7 @@ Control15=IDC_BUTTON2,button,1342242816
 [DLG:IDD_RETURN]
 Type=1
 Class=CReturn
-ControlCount=12
+ControlCount=14
 Control1=IDC_STATIC,static,1342308352
 Control2=IDC_EDIT2,edit,1350631552
 Control3=IDC_STATIC,static,1342308352
@@ -166,6 +170,8 @@ Control9=IDC_STATIC,static,1342308352
 Control10=IDC_DATETIMEPICKER1,SysDateTimePick32,1342242848
 Control11=IDC_BUTTON1,button,1342242816
 Control12=IDC_BUTTON2,button,1342242816
+Control13=IDC_STATIC,static,1342308352
+Control14=IDC_EDIT1,edit,1350631552
 
 [CLS:CBorrow]
 Type=0
@@ -179,7 +185,7 @@ HeaderFile=Return.h
 ImplementationFile=Return.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_DATETIMEPICKER1
+LastObject=CReturn
 VirtualFilter=dWC
 
 [CLS:CBookBorrow]
@@ -193,7 +199,7 @@ LastObject=IDC_EDIT6
 
 [DLG:IDD_READER_ADD]
 Type=1
-Class=?
+Class=CReadAdd
 ControlCount=10
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -208,8 +214,8 @@ Control10=IDC_STATIC,static,1342308352
 
 [DLG:IDD_BOOK_ADD]
 Type=1
-Class=?
-ControlCount=20
+Class=CBookAdd
+ControlCount=22
 Control1=IDC_STATIC,static,1342308352
 Control2=IDC_EDIT1,edit,1350631552
 Control3=IDC_STATIC,static,1342308352
@@ -230,6 +236,8 @@ Control17=IDC_STATIC,static,1342308352
 Control18=IDC_STATIC,static,1342308352
 Control19=IDC_EDIT7,edit,1350633600
 Control20=IDC_STATIC,static,1342308352
+Control21=IDC_BUTTON1,button,1342242816
+Control22=IDC_BUTTON2,button,1342242816
 
 [DLG:IDD_BOOK_DELETE]
 Type=1
@@ -264,7 +272,7 @@ Control13=IDC_EDIT5,edit,1350633600
 
 [DLG:IDD_READER_DELETE]
 Type=1
-Class=?
+Class=CReaderDeleteDlg
 ControlCount=6
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -280,11 +288,11 @@ ImplementationFile=BookDelete.cpp
 BaseClass=CDialog
 Filter=D
 VirtualFilter=dWC
-LastObject=IDOK
+LastObject=CBookDelete
 
 [DLG:IDD_READER_SEARCH]
 Type=1
-Class=?
+Class=CReaderSearchDlg
 ControlCount=8
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -326,4 +334,40 @@ Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
 Control3=IDC_STATIC,static,1342308352
 Control4=IDC_EDIT5,edit,1350633600
+
+[CLS:CBookAdd]
+Type=0
+HeaderFile=BookAdd.h
+ImplementationFile=BookAdd.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_EDIT6
+VirtualFilter=dWC
+
+[CLS:CReadAdd]
+Type=0
+HeaderFile=ReadAdd.h
+ImplementationFile=ReadAdd.cpp
+BaseClass=CDialog
+Filter=D
+VirtualFilter=dWC
+LastObject=CReadAdd
+
+[CLS:CReaderDeleteDlg]
+Type=0
+HeaderFile=readerdeletedlg.h
+ImplementationFile=readerdeletedlg.cpp
+BaseClass=CDialog
+Filter=D
+VirtualFilter=dWC
+LastObject=CReaderDeleteDlg
+
+[CLS:CReaderSearchDlg]
+Type=0
+HeaderFile=ReaderSearchDlg1.h
+ImplementationFile=ReaderSearchDlg1.cpp
+BaseClass=CDialog
+Filter=D
+VirtualFilter=dWC
+LastObject=CReaderSearchDlg
 

@@ -7,6 +7,7 @@
 // Return.h : header file
 //
 #include "Book.h"
+#include "Reader.h"
 /////////////////////////////////////////////////////////////////////////////
 // CReturn dialog
 
@@ -24,10 +25,13 @@ public:
 	CString	m_return_book;
 	CString	m_return_money;
 	CTime	m_return_dat;
+	CString	m_book_id;
 	//}}AFX_DATA
 
 	CBook m_book;
-	struct BorrowInfo m_borrowInfo;
+	CReader m_reader;
+
+	struct ReaderInfo m_borrowInfo;
 
 
 // Overrides

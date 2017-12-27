@@ -54,6 +54,7 @@ CLibraryManageView::CLibraryManageView()
 	m_pReaderMod = NULL;
 	m_pReaderOut = NULL;
 	m_book.getAllData();
+	m_reader.getAllData();
 	
 
 }
@@ -61,6 +62,7 @@ CLibraryManageView::CLibraryManageView()
 CLibraryManageView::~CLibraryManageView()
 {
 	m_book.saveAllData();
+	
 }
 
 BOOL CLibraryManageView::PreCreateWindow(CREATESTRUCT& cs)
@@ -156,7 +158,7 @@ int CLibraryManageView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	if ( m_pBookAdd == NULL)
 	{
-		m_pBookAdd = new CBookAddDlg();
+		m_pBookAdd = new CBookAdd();
 		m_pBookAdd->Create(IDD_BOOK_ADD,this);
 		m_pBookAdd->ShowWindow(SW_HIDE);
 	}
@@ -168,13 +170,13 @@ int CLibraryManageView::OnCreate(LPCREATESTRUCT lpCreateStruct)
  	}
  	if ( m_pReaderAdd == NULL)
  	{
- 		m_pReaderAdd = new CReaderAddDlg();
+ 		m_pReaderAdd = new CReadAdd();
  		m_pReaderAdd->Create(IDD_READER_ADD,this);
  		m_pReaderAdd->ShowWindow(SW_HIDE);
  	}
  	if ( m_pReaderDelete == NULL)
  	{
- 		m_pReaderDelete = new CReaderDelete();
+ 		m_pReaderDelete = new CReaderDeleteDlg();
  		m_pReaderDelete->Create(IDD_READER_DELETE,this);
  		m_pReaderDelete->ShowWindow(SW_HIDE);
  	}
@@ -258,7 +260,7 @@ void CLibraryManageView::OnBookAdd()
 	m_pReaderDelete->ShowWindow(SW_HIDE);
 	m_pReaderMod->ShowWindow(SW_HIDE);
 	m_pReaderSearch->ShowWindow(SW_HIDE);
-	m_pReaderOut->ShowWindow(SW_SHOW);
+	m_pReaderOut->ShowWindow(SW_HIDE);
 }
 
 void CLibraryManageView::OnBookSearch() 

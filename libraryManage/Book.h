@@ -36,8 +36,8 @@ struct bookInfo
 	CString	 strBookPrint;
 	CString  strBookDate;
 	CString strBookPrice;
-	int bookNumIN; //图书剩余数量
-	int bookNumOut; //图书借出数量
+	CString isReturn;
+	CString isValid;
 };
 
 class CBook  
@@ -45,17 +45,18 @@ class CBook
 public:
 	CBook();
 	virtual ~CBook();
-void setBorrowInfo(struct BorrowInfo& info);
+void setBorrowInfo(struct bookInfo info);
 
 int isIdExist(CString strName);
-void  saveBorrowInfo(struct BorrowInfo info);
-void  saveReturnInfo(struct BorrowInfo info);
+void  saveBorrowInfo(struct bookInfo info);
+void  saveReturnInfo(struct bookInfo info);
 int   outOfDate(CString strName, CString strBook, CTime back);
 void  saveAllData();
 int isBookExist(CString bookName);
-bool deleteBook(struct BorrowInfo info);
+bool deleteBook(struct bookInfo info);
+bool addBook(struct bookInfo info);
 
-vector<struct BorrowInfo>  getAllData(); 
+vector<struct bookInfo>  getAllData(); 
 
 
 

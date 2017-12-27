@@ -22,7 +22,7 @@ static char THIS_FILE[]=__FILE__;
 using namespace std;
 
 static vector<struct BorrowInfo > m_data;
-static vector<struct bookInfo> m_bookInfo;
+static vector<struct bookInfo>  g_bookInfo;
 CBook::CBook()
 {
 	
@@ -36,34 +36,29 @@ CBook::~CBook()
 
 
 
-void CBook::setBorrowInfo(struct BorrowInfo& info)
+void CBook::setBorrowInfo(struct bookInfo info)
 {
-// 		FILE *fp;
-// 
-// 		if ( (fp = fopen("book.txt","w+")) == NULL)
-// 		{
-// 			return;
-// 		}
 
+	vector<struct bookInfo>::iterator itr;
+    for ( itr = g_bookInfo.begin(); itr != g_bookInfo.end(); ++itr)
+    {
+		if ( itr->strBookName == info.strBookName && itr->isReturn == _T("1")
+			&& itr->isValid == _T("1"))
+		{
+				itr->isReturn = _T("0");
+				itr->isValid = _T("1");
+				g_bookInfo.push_back(info);
+				break;
 
-// 		if ( (fp = fopen("book.txt","a+")) == NULL)
-// 		{
-// 			return;
-// 		}
+			
+		}
+    }
+	//g_bookInfo.push_back(info);
+	saveAllData();
 	
-
-//     CString temp;
-// 	temp.Format("%s-%s-%s-%s-%s-%s-%s-",info.strId,info.strName, info.strCompany, info.strBookName, info.strBorrowDate,info.strBackDate,info.isReturn);
-// 
-// 	fputs(temp, fp);
-// 	
-// 	fclose(fp);
-
-	m_data.push_back(info);
-
 }
 
-vector<struct BorrowInfo> CBook:: getAllData()
+vector<struct bookInfo> CBook:: getAllData()
 {
 	FILE *fp;
 	
@@ -75,7 +70,7 @@ vector<struct BorrowInfo> CBook:: getAllData()
 	char strLine[4096] = {0};
 	string tmp,tmp1;
 	int iStart = 0 , iEnd=0;
-	struct BorrowInfo info;
+	struct bookInfo info;
 	while( !feof(fp))
 	{
 		fgets(strLine,4096,fp); 
@@ -87,74 +82,74 @@ vector<struct BorrowInfo> CBook:: getAllData()
 		iEnd = tmp.find('-',iStart);
 		
 		tmp1 = tmp.substr(iStart, iEnd);   
-		info.strId = CString(tmp1.c_str());   //读者号
+		info.strBookName = CString(tmp1.c_str());   //书名
 
 		iStart = iEnd + 1;
 		iEnd = tmp.find('-', iStart);
-		if ( iEnd == iStart)				//读者姓名
+		if ( iEnd == iStart)				//图书编号
 		{
-			info.strName = "";
+			info.strBookId = "";
 		}
 		else
 		{
 			tmp1 = tmp.substr(iStart, iEnd - iStart);
-			info.strName = CString(tmp1.c_str());
+			info.strBookId = CString(tmp1.c_str());
 		}
 
 		iStart = iEnd + 1;
 		iEnd = tmp.find('-', iStart);
-		if ( iEnd == iStart)				//所在单位
+		if ( iEnd == iStart)				//作者
 		{
-			info.strCompany = "";
+			info.strBookAuthor = "";
 		}
 		else
 		{
 			tmp1 = tmp.substr(iStart, iEnd - iStart);
-			info.strCompany =  CString(tmp1.c_str());
+			info.strBookAuthor =  CString(tmp1.c_str());
 		}
 
 
 		iStart = iEnd + 1;
 		iEnd = tmp.find('-', iStart);
-		if ( iEnd == iStart)				//所借书名
+		if ( iEnd == iStart)				//出版社
 		{
-			info.strBookName = "";
+			info.strBookPrint = "";
 		}
 		else
 		{
 			tmp1 = tmp.substr(iStart, iEnd - iStart );
-			info.strBookName = CString(tmp1.c_str());
+			info.strBookPrint = CString(tmp1.c_str());
 		}
 
 
 		iStart = iEnd + 1;
 		iEnd = tmp.find('-', iStart);
-		if ( iEnd == iStart)				//借阅日期
+		if ( iEnd == iStart)				//出版日期
 		{
-			info.strBorrowDate = "";
+			info.strBookDate = "";
 		}
 		else
 		{
 			tmp1 = tmp.substr(iStart, iEnd - iStart );
-			info.strBorrowDate = CString(tmp1.c_str());
+			info.strBookDate = CString(tmp1.c_str());
 		}
 
 			
 		iStart = iEnd + 1;
 		iEnd = tmp.find('-', iStart);
-		if ( iEnd == iStart)				//归还日期
+		if ( iEnd == iStart)				//图书价格
 		{
-			info.strBackDate = "";
+			info.strBookPrice = "";
 		}
 		else
 		{
 			tmp1 = tmp.substr(iStart, iEnd - iStart );
-			info.strBackDate = CString(tmp1.c_str());
+			info.strBookPrice = CString(tmp1.c_str());
 		}
 
 		iStart = iEnd + 1;
 		iEnd = tmp.find('-', iStart);
-		if ( iEnd == iStart)				//是否还书 '0' 未还
+		if ( iEnd == iStart)				//
 		{
 			info.isReturn = "";
 		}
@@ -164,11 +159,25 @@ vector<struct BorrowInfo> CBook:: getAllData()
 			info.isReturn = CString(tmp1.c_str());
 		}
 
-		m_data.push_back(info);
+		iStart = iEnd + 1;
+		iEnd = tmp.find('-', iStart);
+		if ( iEnd == iStart)				//
+		{
+			info.isValid = "";
+		}
+		else
+		{
+			tmp1 = tmp.substr(iStart, iEnd - iStart);
+			info.isValid = CString(tmp1.c_str());
+		}
+
+	
+
+		g_bookInfo.push_back(info);
 	
 	}
 
-	return m_data;
+	return g_bookInfo;
 
 
 }
@@ -189,18 +198,14 @@ int CBook::isIdExist(CString strName)
 
 }
 
-void  CBook::saveBorrowInfo(struct BorrowInfo info)
+void  CBook::saveBorrowInfo(struct bookInfo info)
 {
 
 //	mapBook[info.strId].push_back(info);
 //	mapBookNum[info.strBookName].bookNumIN--;
 //	mapBookNum[info.strBookName].bookNumOut++;
-	m_data.push_back(info);
-	struct bookInfo bInfo;
-	bInfo.strBookName = info.strBookName;
-	bInfo.bookNumIN = 0;
-	bInfo.bookNumOut = 1;
-	m_bookInfo.push_back(bInfo);
+//	bookInfo.push_back(info);
+
 }
 
 
@@ -228,52 +233,35 @@ void  CBook::saveBorrowInfo(struct BorrowInfo info)
  	return day;
  }
 
- void  CBook:: saveReturnInfo(struct BorrowInfo info)
+ void  CBook:: saveReturnInfo(struct bookInfo info)
  {
 
-	 vector<struct BorrowInfo>::iterator itr;
-	 for ( itr = m_data.begin(); itr != m_data.end(); ++itr)
+	 vector<struct bookInfo>::iterator itr;
+	 for ( itr = g_bookInfo.begin(); itr != g_bookInfo.end(); ++itr)
 	 {
-		 if ( itr->strId == info.strId && itr->strBookName == info.strBookName)
+		 if ( itr->strBookId == info.strBookId && itr->strBookName == info.strBookName)
 		 {
 			 itr->isReturn = _T("1");
-			 struct bookInfo bInfo;
-			 bInfo.strBookName = info.strBookName;
-			 bInfo.bookNumIN = 1;
-			 bInfo.bookNumOut = 0;
-			m_bookInfo.push_back(bInfo);
+			 itr->isValid = _T("1");
 		 }
 	 }
 
  }
 
- bool CBook::deleteBook(struct BorrowInfo info)
+ bool CBook::deleteBook(struct bookInfo info)
  {
-	 vector<struct BorrowInfo>::iterator itr;
-	 for ( itr = m_data.begin(); itr != m_data.end(); ++itr)
+	 vector<struct bookInfo>::iterator itr;
+	 for ( itr = g_bookInfo.begin(); itr != g_bookInfo.end(); ++itr)
 	 {
-// 		 if ( itr->strBookName == info.strBookName )
-// 		 {
-// 			 if ( itr->strId != ";" || itr->isReturn != "1")
-// 			 {
-// 				 return false;
-// 			 }
-// 			
-// // 			 struct bookInfo bInfo;
-// // 			 bInfo.strBookName = info.strBookName;
-// // 			 bInfo.bookNumIN = 0;
-// // 			 bInfo.bookNumOut = 0;
-// // 			 m_bookInfo.push_back(bInfo);
-// 
-// 			 info.strId = ";";
-			
-
-
-	//	 }
+ 		 if ( itr->strBookName == info.strBookName && itr->strBookId == info.strBookId )
+ 		 {
+ 				itr->isReturn = "1";		 
+				itr->isValid = "0";
+		 }
 	
 	 }
 
-	 
+	 saveAllData();
 	 return true;
 
 
@@ -288,13 +276,19 @@ void  CBook::saveBorrowInfo(struct BorrowInfo info)
 		 return ;
 	}
 
-	 vector<struct BorrowInfo>::iterator info;
-	 int aa = m_data.size();
-	 for( info = m_data.begin(); info != m_data.end(); ++info)
+	 vector<struct bookInfo>::iterator info;
+	 int aa = g_bookInfo.size();
+	 for( info = g_bookInfo.begin(); info != g_bookInfo.end(); info++)
 	 {
-		 CString temp;
-		 temp.Format("%s-%s-%s-%s-%s-%s-%s-",info->strId,info->strName, info->strCompany, info->strBookName, info->strBorrowDate,info->strBackDate,info->isReturn);
-		 fputs(temp, fp);
+		 if ( info->isValid == "1")
+		 {
+			 CString temp;
+			 temp.Format("%s-%s-%s-%s-%s-%s-%s-%s-",info->strBookName,info->strBookId, 
+				 info->strBookAuthor, info->strBookPrint, 
+				 info->strBookDate,info->strBookPrice,info->isReturn,info->isValid);
+			 fprintf(fp,"%s\n", temp);
+		 }
+		
 	 }
 	
 	 
@@ -306,9 +300,9 @@ void  CBook::saveBorrowInfo(struct BorrowInfo info)
 
  int CBook:: isBookExist(CString bookName)
  {
-	 vector<struct BorrowInfo>::iterator info;
-	 int aa = m_data.size();
-	 for( info = m_data.begin(); info != m_data.end(); ++info)
+	 vector<struct bookInfo>::iterator info;
+	 int aa = g_bookInfo.size();
+	 for( info = g_bookInfo.begin(); info != g_bookInfo.end(); ++info)
 	 {
 		if ( info->strBookName == bookName)
 		{
@@ -316,4 +310,11 @@ void  CBook::saveBorrowInfo(struct BorrowInfo info)
 		}
 	 }
 	 return 0;
+ }
+
+ bool CBook::addBook(struct bookInfo info)
+ {
+	 g_bookInfo.push_back(info);
+	 saveAllData();
+	 return true;
  }

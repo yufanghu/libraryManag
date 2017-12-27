@@ -94,7 +94,7 @@ SOURCE=.\Book.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\BookAddDlg.cpp
+SOURCE=.\BookAdd.cpp
 # End Source File
 # Begin Source File
 
@@ -130,15 +130,11 @@ SOURCE=.\MainFrm.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\ReadAdd.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Reader.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\ReaderAddDlg.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\ReaderDelete.cpp
 # End Source File
 # Begin Source File
 
@@ -154,7 +150,7 @@ SOURCE=.\ReaderOutDlg.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\ReaderSearchDlg.cpp
+SOURCE=.\ReaderSearchDlg1.cpp
 # End Source File
 # Begin Source File
 
@@ -175,7 +171,7 @@ SOURCE=.\Book.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\BookAddDlg.h
+SOURCE=.\BookAdd.h
 # End Source File
 # Begin Source File
 
@@ -207,15 +203,11 @@ SOURCE=.\MainFrm.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\ReadAdd.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Reader.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ReaderAddDlg.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ReaderDelete.h
 # End Source File
 # Begin Source File
 
@@ -231,7 +223,7 @@ SOURCE=.\ReaderOutDlg.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\ReaderSearchDlg.h
+SOURCE=.\ReaderSearchDlg1.h
 # End Source File
 # Begin Source File
 

@@ -19,7 +19,8 @@ CReaderDeleteDlg::CReaderDeleteDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CReaderDeleteDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CReaderDeleteDlg)
-		// NOTE: the ClassWizard will add member initialization here
+	m_reader_id = _T("");
+	m_reader_info = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -28,7 +29,8 @@ void CReaderDeleteDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CReaderDeleteDlg)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	DDX_Text(pDX, IDC_EDIT1, m_reader_id);
+	DDX_Text(pDX, IDC_EDIT2, m_reader_info);
 	//}}AFX_DATA_MAP
 }
 

@@ -23,6 +23,7 @@ CReturn::CReturn(CWnd* pParent /*=NULL*/)
 	m_return_id = _T("");
 	m_return_book = _T("");
 	m_return_money = _T("");
+	m_book_id = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -35,6 +36,7 @@ void CReturn::DoDataExchange(CDataExchange* pDX)
  	DDX_Text(pDX, IDC_EDIT3, m_return_book);
  	DDX_Text(pDX, IDC_EDIT7, m_return_money);
  	DDX_DateTimeCtrl(pDX, IDC_DATETIMEPICKER1, m_return_dat);
+	DDX_Text(pDX, IDC_EDIT1, m_book_id);
 	//}}AFX_DATA_MAP
 }
 
@@ -54,7 +56,7 @@ void CReturn::OnReturn()
 	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
 	double dMoney = 0.0;
- 	int bExist = m_book.isIdExist(m_return_id);
+ 	int bExist = m_reader.isReaderExist(m_return_id);
  	if ( bExist == 0)
  	{
  		MessageBox("读者信息不存在","提示");
@@ -74,11 +76,21 @@ void CReturn::OnReturn()
 		dMoney = day * 0.1;
 	}
 
-	m_book.saveReturnInfo(m_borrowInfo);
+	
+
+	m_reader.saveReturnInfo(m_borrowInfo);
 	CString strMoney;
 	strMoney.Format("%.2f",dMoney);
 	m_return_money = strMoney;
+
+	struct bookInfo m_bookMan;
+	m_bookMan.strBookName = m_return_book;
+	m_bookMan.isReturn = _T("1");
+	m_bookMan.isValid = _T("1");
+	m_bookMan.strBookId = m_book_id;
+    m_book.saveReturnInfo(m_bookMan);
 	UpdateData(FALSE);
+	
 	
 	
 }

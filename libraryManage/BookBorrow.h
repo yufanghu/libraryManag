@@ -7,6 +7,7 @@
 // BookBorrow.h : header file
 //
 #include "Book.h"
+#include "Reader.h"
 /////////////////////////////////////////////////////////////////////////////
 // CBookBorrow dialog
 
@@ -40,6 +41,7 @@ public:
 	//}}AFX_VIRTUAL
 
 	CBook  m_book;
+	CReader m_reader;
 	struct BorrowInfo m_borrowInfo;
 // Implementation
 protected:

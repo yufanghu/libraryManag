@@ -58,13 +58,12 @@ void CBookDelete::OnDelete()
 		return;
 	}
 
-	CString temp;
-	temp.Format("%s-%s-%s-%s-%s-%s-%s-",_T(";"),_T(""), _T(""), m_book_name, 
-					_T(""),_T(""),_T("1"));
-	struct BorrowInfo info;
-	info.strName = ";";
+
+	struct bookInfo info;
+	info.strBookName = m_book_name;
+	info.strBookId = m_book_id;
 	info.isReturn = "1";
-	info.strBackDate = "";
+	info.isValid = "0";
 	bool res = m_book.deleteBook(info);
 	
 	

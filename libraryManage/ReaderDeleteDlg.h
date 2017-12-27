@@ -19,7 +19,8 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CReaderDeleteDlg)
 	enum { IDD = IDD_READER_DELETE };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_reader_id;
+	CString	m_reader_info;
 	//}}AFX_DATA
 
 
